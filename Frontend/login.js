@@ -100,40 +100,6 @@ function initDarkMode() {
   }
 }
 
-/**
- * Update dark mode toggle button visual state
- * @param {boolean} isDark - Whether dark mode is active
- */
-function updateDarkModeToggle(isDark) {
-  const sunIcon = document.getElementById("sunIcon");
-  const moonIcon = document.getElementById("moonIcon");
-
-  if (isDark) {
-    sunIcon.className =
-      "absolute inset-0 text-yellow-400 transition-all duration-300 transform rotate-180 scale-0";
-    moonIcon.className =
-      "absolute inset-0 text-blue-300 transition-all duration-300 transform rotate-0 scale-100";
-  } else {
-    sunIcon.className =
-      "absolute inset-0 text-yellow-400 transition-all duration-300 transform rotate-0 scale-100";
-    moonIcon.className =
-      "absolute inset-0 text-blue-300 transition-all duration-300 transform rotate-180 scale-0";
-  }
-}
-
-// EVENT LISTENERS SETUP
-
-function setupEventListeners() {
-  // Dark mode toggle
-  const darkModeToggle = document.getElementById("darkModeToggle");
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateDarkModeToggle(isDark);
-    });
-  }
-
   // Form switching
   const showSignupBtn = document.getElementById("showSignup");
   const showLoginBtn = document.getElementById("showLogin");
