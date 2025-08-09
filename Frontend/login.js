@@ -85,21 +85,18 @@ function checkAuthStatus() {
 // DARK MODE FUNCTIONALITY
 
 /**
- * Initialize dark mode based on user preference or system setting
+ * Initialize and enforce dark mode permanently
  */
 function initDarkMode() {
-  const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
-    document.documentElement.classList.remove("dark");
-    updateDarkModeToggle(false);
-  } else {
-    document.documentElement.classList.add("dark");
-    updateDarkModeToggle(true);
-  }
+  // Always enable dark mode
+  document.documentElement.classList.add("dark");
+  // Remove any light mode preference from localStorage
+  localStorage.setItem("theme", "dark");
 }
 
+// EVENT LISTENERS SETUP
+
+function setupEventListeners() {
   // Form switching
   const showSignupBtn = document.getElementById("showSignup");
   const showLoginBtn = document.getElementById("showLogin");
